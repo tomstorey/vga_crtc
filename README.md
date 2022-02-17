@@ -40,10 +40,10 @@ Configuration registers are distributed across 4 memory addresses. Registers are
 ### Cursor control register #1
 | 7 |  |  |  |  |  |  | 0 |
 |--|--|--|--|--|--|--|--|
-| U | U | U | W-0 | U | W-0 | W-0 | W-0 |
-|  |  |  | CDIS |  | POS10 | POS9 | POS8 |
+| W-0 | U | U | U | U | W-0 | W-0 | W-0 |
+| CDIS |  |  |  |  | POS10 | POS9 | POS8 |
 
-Bit 4: CDIS: Cursor Disable<br>
+Bit 7: CDIS: Cursor Disable<br>
 &nbsp;&nbsp;&nbsp;&nbsp;0: Cursor is enabled<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1: Cursor is disabled<br>
 Bits 2-0: POS: Upper bits of cursor position<br>
@@ -79,10 +79,10 @@ Bit 3-0: Cursor start scanline<br>
 | U | U | U | W-0 | U | U | U | W-0 |
 |  |  |  | BLANK |  |  |  | EXTBG |
 
-Bit 4: Screen blanking control<br>
+Bit 4: BLANK: Screen blanking control<br>
 &nbsp;&nbsp;&nbsp;&nbsp;0: Screen is enabled<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1: Screen is blanked<br>
-Bits 0: Extended background colour option<br>
+Bits 0: EXTBG: Extended background colour option<br>
 &nbsp;&nbsp;&nbsp;&nbsp;0: 16 FG, 8 BG, blinking text<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1: 16 FG and BG, no blinking text<br>
 
