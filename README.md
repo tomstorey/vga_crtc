@@ -122,6 +122,21 @@ The register at address 0x3 contains two bits that select the colour mode, and e
 
 At reset, the colour mode provides 16 foreground colours, 8 background colours, and permits blinking text by setting bit 7 of the attribute byte. Setting bit 0 of this register causes bit 7 of the attribute byte to act as an intensity bit for the background colour, allowing 16 background colours to be used at the loss of blinking text.
 
+**Format of attribute byte when EXTBG = 0**
+
+    |  7                                           0  |
+    +-------+-----+-----+-----+-----+-----+-----+-----+
+    | BLINK | BG2 | BG1 | BG0 | FG3 | FG2 | FG1 | FG0 |
+    +-------+-----+-----+-----+-----+-----+-----+-----+
+
+**Format of attribute byte when EXTBG = 1**
+
+    |  7                                         0  |
+    +-----+-----+-----+-----+-----+-----+-----+-----+
+    | BG3 | BG2 | BG1 | BG0 | FG3 | FG2 | FG1 | FG0 |
+    +-----+-----+-----+-----+-----+-----+-----+-----+
+
+
 Bit 4 allows software to blank the screen. Setting this bit is intended to immediately cause the screen to be blanked from the current pixel position by inhibiting colour generation by the RAMDAC or external colour circuitry. Clearing the bit should immediately re-enable colour generation by the RAMDAC or external circuitry. An external blanking input is provided, which can enable blanking synced to horizontal or vertical sync periods.
 
 ### VRAM format and access details
