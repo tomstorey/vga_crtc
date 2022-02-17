@@ -43,11 +43,10 @@ Configuration registers are distributed across 4 memory addresses. Registers are
 | U | U | U | W-0 | U | W-0 | W-0 | W-0 |
 |  |  |  | CDIS |  | POS10 | POS9 | POS8 |
 
-Bit 4: CDIS: Cursor Disable
-&nbsp;&nbsp;&nbsp;&nbsp;0: Cursor is enabled
-&nbsp;&nbsp;&nbsp;&nbsp;1: Cursor is disabled
-Bits 2-0: POS: Upper bits of cursor position
-&nbsp;&nbsp;&nbsp;&nbsp;
+Bit 4: CDIS: Cursor Disable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0: Cursor is enabled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1: Cursor is disabled<br>
+Bits 2-0: POS: Upper bits of cursor position<br>
 
 ### Cursor control register #2
 | 7 |  |  |  |  |  |  | 0 |
@@ -63,16 +62,16 @@ Bits 7-0: POS: Lower bits of cursor position
 | W-1 | W-1 | W-1 | W-0 | W-1 | W-1 | W-0 | W-1 |
 | END3 | END2 | END1 | END0 | START3 | START2 | START1 | START0 |
 
-Bit 7-4: Cursor end scanline
-&nbsp;&nbsp;&nbsp;&nbsp;0000: Cursor ends on scanline 0
-&nbsp;&nbsp;&nbsp;&nbsp;0001: Cursor ends on scanline 1
-&nbsp;&nbsp;&nbsp;&nbsp;...
-&nbsp;&nbsp;&nbsp;&nbsp;1111: Cursor ends on scanline 15
-Bit 3-0: Cursor start scanline
-&nbsp;&nbsp;&nbsp;&nbsp;0000: Cursor starts on scanline 0
-&nbsp;&nbsp;&nbsp;&nbsp;0001: Cursor starts on scanline 1
-&nbsp;&nbsp;&nbsp;&nbsp;...
-&nbsp;&nbsp;&nbsp;&nbsp;1111: Cursor starts on scanline 15
+Bit 7-4: Cursor end scanline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0000: Cursor ends on scanline 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0001: Cursor ends on scanline 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1111: Cursor ends on scanline 15<br>
+Bit 3-0: Cursor start scanline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0000: Cursor starts on scanline 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0001: Cursor starts on scanline 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1111: Cursor starts on scanline 15<br>
 
 ### CRTC control register
 | 7 |  |  |  |  |  |  | 0 |
@@ -80,12 +79,12 @@ Bit 3-0: Cursor start scanline
 | U | U | U | W-0 | U | U | U | W-0 |
 |  |  |  | BLANK |  |  |  | EXTBG |
 
-Bit 4: Screen blanking control
-&nbsp;&nbsp;&nbsp;&nbsp;0: Screen is enabled
-&nbsp;&nbsp;&nbsp;&nbsp;1: Screen is blanked
-Bits 0: Extended background colour option
-&nbsp;&nbsp;&nbsp;&nbsp;0: 16 FG, 8 BG, blinking text
-&nbsp;&nbsp;&nbsp;&nbsp;1: 16 FG and BG, no blinking text
+Bit 4: Screen blanking control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0: Screen is enabled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1: Screen is blanked<br>
+Bits 0: Extended background colour option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0: 16 FG, 8 BG, blinking text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1: 16 FG and BG, no blinking text<br>
 
 ## Description of operation
 The CRTC is a free-running controller which does not need any special initialisation from an external CPU to function. It is clocked separately to the main CPU by an external 28.322MHz oscillator, which is the pixel clock, and from which all horizontal and vertical timing is derived to drive  a connected display.
