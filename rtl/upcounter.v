@@ -3,7 +3,8 @@
 module upcounter
 #(parameter WIDTH=8,
             INCREMENT=1,
-            RESET_COUNT=-1
+            MAX_COUNT=-1,
+            RESET_VALUE=0
 )
 (
     input wire reset,
@@ -14,17 +15,18 @@ module upcounter
     always @(posedge clk, posedge reset) begin
         if (reset) begin
             /* When reset is asserted, reset the counter to 0 */
-            count <= {WIDTH{1'b0}};
+            count <= RESET_VALUE;
         end
-        else if (enable) begin
-            if (count >= (RESET_COUNT - INCREMENT)) begin
-                /* When the count reaches or exceeds the reset value, reset the
-                 * counter to 0 */
-                count <= {WIDTH{1'b0}};
-            end
-            else begin
-                /* Otherwise increment for each clock */
-                count <= count + INCREMENT;
+        else begin
+            if (enable) begin
+                if (count < MAX_COUNT) begin
+                    /* If the count is below the MAX_COUNT value, increment */
+                    count <= count + INCREMENT;
+                end
+                else begin
+                    /* Otherwise, reset to 0 */
+                    count <= {WIDTH{1'b0}};
+                end
             end
         end
     end

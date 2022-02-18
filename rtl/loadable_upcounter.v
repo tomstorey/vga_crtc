@@ -11,18 +11,21 @@ module loadable_upcounter
     input wire [WIDTH-1:0] value,
     output reg [WIDTH-1:0] count
 );
-    always @(posedge clk, posedge reset) begin
+    always @(posedge reset, posedge clk) begin
         if (reset) begin
             /* When reset is asserted, reset the counter to 0 */
             count <= {WIDTH{1'b0}};
         end
-        else if (load) begin
-            /* When the load signal is asserted, load value into the counter */
-            count <= value;
-        end
         else begin
-            /* Otherwise increment for each clock */
-            count <= count + INCREMENT;
+            if (load) begin
+                /* When the load signal is asserted, synchronously load value
+                 * into the counter */
+                count <= value;
+            end
+            else begin
+                /* Otherwise increment for each clock */
+                count <= count + INCREMENT;
+            end
         end
     end
 endmodule

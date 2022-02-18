@@ -39,7 +39,8 @@ module CRTC
         .FRONT_COUNT(770),
         .SYNC_COUNT(785),
         .RESET_COUNT(894)
-    ) hsync_gen(
+    )
+    hsync_gen(
         .reset(~n_reset),
         .clk(pixel_clk),
         .backporch(hsync_backporch),
@@ -62,7 +63,8 @@ module CRTC
         .FRONT_COUNT(430),
         .SYNC_COUNT(441),
         .RESET_COUNT(444)
-    ) vsync_gen(
+    )
+    vsync_gen(
         .reset(~n_reset),
         .clk(hsync_sync),
         .backporch(vsync_backporch),
@@ -85,8 +87,10 @@ module CRTC
     
     upcounter #(
         .WIDTH(4),
-        .RESET_COUNT(9)
-    ) char_pix(
+        .MAX_COUNT(8),
+        .RESET_VALUE(8)
+    )
+    char_pix(
         .reset(~hsync_active),
         .enable(1'b1),
         .clk(pixel_clk),
@@ -105,7 +109,8 @@ module CRTC
     
     upcounter #(
         .WIDTH(4)
-    ) scanline_ctr(
+    )
+    scanline_ctr(
         .reset(~vsync_active),
         .enable(1'b1),
         .clk(hsync_frontporch),
@@ -124,7 +129,8 @@ module CRTC
     upcounter #(
         .WIDTH(11),
         .INCREMENT(80)
-    ) text_row(
+    )
+    text_row(
         .reset(~vsync_active),
         .enable(1'b1),
         .clk(text_row_inc),
@@ -169,7 +175,8 @@ module CRTC
     
     upcounter #(
         .WIDTH(5)
-    ) blink(
+    )
+    blink(
         .reset(~n_reset),
         .enable(1'b1),
         .clk(vsync_sync),
@@ -257,7 +264,7 @@ module CRTC
     pixel_generator pix_gen(
         .reset(~vsync_active),
         .clk(pixel_clk),
-        .load(char_pix_count == 0 & hsync_active),
+        .load(char_pix_count == 8),
         .attribute_data(attribute_data),
         .font_data(font_data),
         .char_msbs(char_msbs),

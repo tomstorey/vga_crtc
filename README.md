@@ -17,7 +17,7 @@ A summary of features supported by this CRTC include:
 	* 16 foreground and background colours without blinking text
 * Software configurable screen blank via a configuration register
 
-The current implementation consumes 122 macrocells.
+The current implementation consumes 121 macrocells.
 
 ## Configuration Registers
 Configuration registers are distributed across 4 memory addresses. Registers are write-only. A larger CPLD or different pin arrangement may permit registers to also be readable.
