@@ -104,7 +104,7 @@ An external blanking input is provided to allow external circuitry to blank the 
 <img src="CRTC block.png">
 
 ### Configuration register descriptions
-In register at address 0x0, bit 4 represents the cursor disable bit. Setting this bit allows the cursor to be disabled in-place, i.e. it does not need to be moved off the active screen area. Clearing the bit will enable the cursor.
+In register at address 0x0, bit 7 represents the cursor disable bit. Setting this bit allows the cursor to be disabled in-place, i.e. it does not need to be moved off the active screen area. Clearing the bit will enable the cursor.
 
 In register at address 0x2, the start and end scanlines of the cursor can be configured. The cursor is configurable to be visible from 1 to 16 scanlines, permitting various sizes and positioning to be achieved. At reset, the cursor will be visible on scanlines 13 and 14. Setting the start scanline to be later than the end scanline may result in undefined behaviour of the cursor.
 
