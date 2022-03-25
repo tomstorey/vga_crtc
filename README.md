@@ -19,6 +19,11 @@ A summary of features supported by this CRTC include:
 
 The current implementation consumes 121 macrocells.
 
+## License
+The contents of this respository are licensed under the 3-Clause BSD License ("BSD-3-Clause"), which is contained in LICENSE.txt.
+
+While the BSD-3-Clause License does not require derivative works be made available, in the interest and spirit of open source, the author encourages you to open up (or preferably upstream via pull request) any changes you make which would ordinarily be considered an improvement.
+
 ## Configuration Registers
 Configuration registers are distributed across 4 memory addresses. Registers are write-only. A larger CPLD or different pin arrangement may permit registers to also be readable.
 
